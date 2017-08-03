@@ -31,6 +31,7 @@ group :development, :test do
   gem 'hirb'
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails', '~> 4.8'
+  gem 'annotate', '~> 2.7'
 end
 
 group :development do
