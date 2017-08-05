@@ -5,14 +5,12 @@
 version: 2
 jobs:
   build:
-    environment:
-      DB_HOST: localhost
     docker:
        - image: circleci/ruby:2.4.1-node-browsers
        - image: postgres:9.6
-        environment:
-        - POSTGRES_USER=postgres
-        - POSTGRES_DB=postgres
+         environment:
+           - POSTGRES_USER=postgres
+           - POSTGRES_DB=postgres
 
     working_directory: ~/repo
 
@@ -43,6 +41,8 @@ jobs:
       # run tests!
       - run:
           name: run tests
+          environment:
+            DATABASE_URL: "postgres://ubuntu@localhost:5432/db_name"
           command: |
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
