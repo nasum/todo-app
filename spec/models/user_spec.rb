@@ -12,5 +12,20 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#valid' do
+    context 'correct input' do
+      let(:user) { build(:user) }
+      it { expect(user).to be_valid }
+    end
+
+    context 'nothing email' do
+      let(:user) { build(:user, email: '') }
+      it { expect(user).not_to be_valid }
+    end
+
+    context 'nothing password' do
+      let(:user) { build(:user, password: '') }
+      it { expect(user).not_to be_valid }
+    end
+  end
 end
