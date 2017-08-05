@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  resources :users
+  root to: 'default#index'
+  resources :users, except: [:index]
 end
