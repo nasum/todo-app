@@ -33,6 +33,7 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.8'
   gem 'annotate', '~> 2.7'
   gem 'faker', '~> 1.8'
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
 end
 
 group :development do
