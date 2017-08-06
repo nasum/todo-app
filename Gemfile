@@ -34,6 +34,7 @@ group :development, :test do
   gem 'annotate', '~> 2.7'
   gem 'faker', '~> 1.8'
   gem 'dotenv-rails', require: 'dotenv/rails-now'
+  gem 'rspec_junit_formatter', '~> 0.3'
 end
 
 group :development do
