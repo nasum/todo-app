@@ -10,4 +10,6 @@
   %body
     %header
       %h1 TODO App
+      %span
+        = current_user.try(:email)
     = yield
