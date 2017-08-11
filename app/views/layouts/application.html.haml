@@ -8,8 +8,12 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
 
   %body
-    %header
-      %h1 TODO App
-      %span
-        = current_user.try(:email)
+    %header.app-header
+      %h1.app-header__title TODO App
+      %span.app-header__user
+        - if current_user
+          = current_user.try(:email)
+          = link_to 'sign out', sign_out_path, method: :delete
+        - else
+          = link_to 'sing in', sign_in_path
     = yield
