@@ -22,5 +22,20 @@
 require 'rails_helper'
 
 RSpec.describe Todo, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#save' do
+    context 'valid input' do
+      let(:todo) { build(:todo) }
+      it { expect(todo.save).to be_truthy }
+    end
+
+    context 'no title' do
+      let(:todo) { build(:todo, title: '') }
+      it { expect(todo.save).to be_falsey }
+    end
+
+    context 'no expired_at' do
+      let(:todo) { build(:todo, expired_at: '') }
+      it { expect(todo.save).to be_falsey }
+    end
+  end
 end

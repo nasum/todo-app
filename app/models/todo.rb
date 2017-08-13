@@ -21,4 +21,7 @@
 
 class Todo < ApplicationRecord
   belongs_to :user
+
+  validates :title, presence: true
+  validates :expired_at, presence: true
 end

@@ -21,9 +21,9 @@
 
 FactoryGirl.define do
   factory :todo do
-    title "MyString"
-    description "MyText"
-    expired_at "2017-08-12 23:36:17"
+    title { Faker::Lorem.sentence }
+    description { Faker::Lorem.paragraph }
+    expired_at { "2017-08-12 23:36:17" }
 
     association :user, factory: :user
   end
