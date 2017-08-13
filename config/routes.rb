@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   delete '/sign_out', to: 'session#destroy'
 
   resources :dashboard, only: [:index]
+  resources :todos
 end
