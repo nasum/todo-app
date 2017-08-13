@@ -10,7 +10,8 @@
   %body
     %header.app-header
       .app-header__content
-        %h1.app-header__title TODO App
+        %h1.app-header__title
+          = link_to 'TODO App', root_path
         %span.app-header__user
           - if current_user
             = current_user.try(:email)
