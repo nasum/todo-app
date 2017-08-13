@@ -20,6 +20,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'hamlit', '~> 2.8'
 gem 'normalize-rails'
 
+gem 'webpacker', '~> 2.0'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
