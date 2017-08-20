@@ -1,3 +1,8 @@
 %h2 Dashboard
 
 = render 'form', todo: @todo
+
+#todo-list
+  %todo-list{ 'v-bind:todos': 'todos' }
+
+= javascript_pack_tag 'todo-list-index'

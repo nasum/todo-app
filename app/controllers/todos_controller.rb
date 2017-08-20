@@ -1,5 +1,7 @@
 class TodosController < ApplicationController
   def index
+    @todos = @current_user.todos
+    render locals: { todos: @todos }
   end
 
   def create

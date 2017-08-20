@@ -97,6 +97,8 @@ GEM
       tilt
     hirb (0.7.3)
     i18n (0.8.6)
+    jb (0.4.1)
+      multi_json
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -257,6 +259,7 @@ DEPENDENCIES
   faker (~> 1.8)
   hamlit (~> 2.8)
   hirb
+  jb (~> 0.4)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   normalize-rails

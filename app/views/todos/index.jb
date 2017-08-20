@@ -1,0 +1,1 @@
+todos.map { |todo| {id: todo.id, title: todo.title}}
