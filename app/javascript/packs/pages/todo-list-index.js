@@ -5,11 +5,13 @@
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
 import Vue from 'vue'
-import App from './app.vue'
+import TodoList from '../components/todo-list.vue'
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.body.appendChild(document.createElement('hello'))
-  const app = new Vue(App).$mount('hello')
-
-  console.log(app)
+  new Vue({
+    el: '#todo-list',
+    components: {
+      TodoList: TodoList
+    }
+  })
 })

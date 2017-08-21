@@ -22,6 +22,8 @@ gem 'normalize-rails'
 
 gem 'webpacker', '~> 2.0'
 
+gem 'jb', '~> 0.4'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
