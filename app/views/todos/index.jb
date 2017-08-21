@@ -1,1 +1,6 @@
-todos.map { |todo| {id: todo.id, title: todo.title}}
+todos.map do |todo|
+  {
+    id: todo.id,
+    title: todo.title
+  }
+end

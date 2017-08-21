@@ -4,7 +4,11 @@ import $ from 'jquery'
 axios.defaults.headers['X-CSRF-TOKEN'] = $('meta[name=csrf-token]').attr('content')
 
 export default class Todo {
-  fetchTodoList(todos){
+  constructor () {
+    this.todos = []
+  }
+
+  fetchTodoList(){
     axios({
       method:'get',
       url: 'todos',
@@ -12,7 +16,7 @@ export default class Todo {
     })
       .then((response) => {
         response.data.forEach((todo) => {
-          todos.push(todo)
+          this.todos.push(todo)
         })
       })
   }
