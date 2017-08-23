@@ -9,7 +9,7 @@ RUN apk update && \
     build-base \
     libxml2-dev \
     libxslt-dev \
-    libpq-dev
+    postgresql-devel
 RUN bundle config build.nokogiri --use-system-libraries
 
 WORKDIR /tmp
