@@ -1,13 +1,30 @@
-storage:
- image: busybox
- volumes:
-   - /var/lib/postgres
-db:
-  image: postgres:9.6
-  environment:
-    POSTGRES_USER: "postgres"
-    POSTGRES_PASSWORD: "postgres"
-  volumes_from:
-    - storage
-  ports:
-    - "5432:5432"
+version: '2'
+services:
+  storage:
+   image: busybox
+   volumes:
+     - /var/lib/postgres
+  db:
+    image: postgres:9.6
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    volumes_from:
+      - storage
+    ports:
+      - "5432:5432"
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DEVELOPMENT_DATABASE_HOST: db
+    volumes:
+      - .:/app
+    volumes_from:
+      - storage
+    ports:
+      - "3000:3000"
+    links:
+      - db
+    command: tail -f log/development.log
