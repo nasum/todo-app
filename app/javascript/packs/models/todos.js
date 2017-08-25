@@ -8,16 +8,25 @@ export default class Todo {
     this.todos = []
   }
 
-  fetchTodoList(){
+  putTodo (data) {
     axios({
-      method:'get',
+      method: 'post',
+      url: 'todos',
+      data: data
+    }).then((response) => {
+      console.log(response)
+    })
+  }
+
+  fetchTodoList () {
+    axios({
+      method: 'get',
       url: 'todos',
       responseType:'json'
-    })
-      .then((response) => {
-        response.data.forEach((todo) => {
-          this.todos.push(todo)
-        })
+    }).then((response) => {
+      response.data.forEach((todo) => {
+        this.todos.push(todo)
       })
+    })
   }
 }

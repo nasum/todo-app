@@ -1,6 +1,6 @@
 <template>
   <div class="todo-list">
-    <todo-form></todo-form>
+    <todo-form @sendTodo="sendTodo"></todo-form>
     <ul>
       <li v-for="todo in todoList">
         {{ todo.title }}
@@ -26,7 +26,13 @@ export default {
   },
   methods: {
     sendTodo: function (data) {
-      console.log(data)
+      todos.putTodo({
+        todo: {
+          title: data.title,
+          description: data.description,
+          expired_at: data.expired_at
+        }
+      })
     }
   },
   mounted: function () {

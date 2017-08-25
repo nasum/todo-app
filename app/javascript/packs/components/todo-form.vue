@@ -11,7 +11,7 @@
       </div>
       <div>
         <label for='expired_at'>expired_at</label>
-        <input name='expired_at' type='data' v-model='expired_at'>
+        <input name='expired_at' type='date' v-model='expired_at'>
       </div>
       <div>
         <input type='submit'>
