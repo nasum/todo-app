@@ -9,22 +9,15 @@ RUN apk update && \
     build-base \
     libxml2-dev \
     libxslt-dev \
-    libpq
-RUN bundle config build.nokogiri --use-system-libraries
+    postgresql-dev
 
 WORKDIR /tmp
 
 COPY Gemfile Gemfile
 COPY Gemfile.lock Gemfile.lock
-RUN bundle install --path vendor/bundle
+RUN bundle config build.nokogiri --use-system-libraries
 
-COPY package.json package.json
-COPY yarn.lock yarn.lock
-RUN yarn install
+RUN bundle install --path vendor/bundle
 
 RUN mkdir /app
 WORKDIR /app
-
-ENTRYPOINT ["prehook", "rm -f tmp/pids/server.pid", "--"]
-
-CMD ["rails", "server", "-b", "0.0.0.0"]
