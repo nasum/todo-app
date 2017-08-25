@@ -1,0 +1,15 @@
+version: '2'
+services:
+  storage:
+   image: busybox
+   volumes:
+     - /var/lib/postgres
+  db:
+    image: postgres:9.6
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+    volumes_from:
+      - storage
+    ports:
+      - "5432:5432"
