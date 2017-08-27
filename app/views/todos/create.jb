@@ -1,0 +1,13 @@
+json = {
+  todo: {
+    id: todo.id,
+    title: todo.title,
+    description: todo.description,
+    expired_at: todo.expired_at
+  },
+  error: {
+    title: todo.errors.messages[:title],
+    description: todo.errors.messages[:description],
+    expired_at: todo.errors.messages[:expired_at]
+  }
+}

@@ -6,14 +6,9 @@ class TodosController < ApplicationController
 
   def create
     todo = current_user.todos.new(todo_params)
-
-    if todo.valid?
-      todo.save
-
-      render json: { message: 'ok' }
-    else
-      render json: { message: todo.errors.full_messages }
-    end
+    todo.save
+    logger.error todo.errors.to_json
+    render locals: { todo: todo }
   end
 
   def edit
