@@ -1,6 +1,6 @@
 <template>
   <div class="todo-list">
-    <todo-form @sendTodo="sendTodo"></todo-form>
+    <todo-form @sendTodo="sendTodo" :error="error"></todo-form>
     <ul>
       <li v-for="todo in todoList">
         {{ todo.title }}
@@ -18,7 +18,8 @@ let todos = new Todos
 export default {
   data: function(){
     return {
-      todoList: todos.todos
+      todoList: todos.list,
+      error: todos.error
     }
   },
   components: {

@@ -1,6 +1,7 @@
 todos.map do |todo|
   {
     id: todo.id,
-    title: todo.title
+    title: todo.title,
+    expired_at: todo.expired_at
   }
 end

@@ -5,7 +5,12 @@ axios.defaults.headers['X-CSRF-TOKEN'] = $('meta[name=csrf-token]').attr('conten
 
 export default class Todo {
   constructor () {
-    this.todos = []
+    this.list = [],
+    this.error = {
+      title: '',
+      description: '',
+      expired_at: ''
+    }
   }
 
   putTodo (data) {
@@ -14,7 +19,16 @@ export default class Todo {
       url: 'todos',
       data: data
     }).then((response) => {
-      console.log(response)
+      const todo = response.data.todo
+      const error = response.data.error
+
+      if(error.title || error.expired_at){
+        this.error.title = error.title
+        this.error.description = error.description
+        this.error.expired_at = error.expired_at
+      } else {
+        this.list.push(todo)
+      }
     })
   }
 
@@ -25,7 +39,7 @@ export default class Todo {
       responseType:'json'
     }).then((response) => {
       response.data.forEach((todo) => {
-        this.todos.push(todo)
+        this.list.push(todo)
       })
     })
   }
