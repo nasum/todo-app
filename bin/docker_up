@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require 'pathname'
+require 'fileutils'
+include FileUtils
+
+APP_ROOT = Pathname.new File.expand_path('../../', __FILE__)
+
+chdir APP_ROOT do
+  system 'docker-compose -f docker-compose.yml up'
+end
