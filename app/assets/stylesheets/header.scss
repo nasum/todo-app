@@ -1,4 +1,10 @@
+@import 'colors';
+
 .app-header {
+  background-color: $secondary_color;
+  box-shadow: 0 2px 5px rgba(0,0,0,.26);
+  padding: 5px 0px;
+
   &__content {
     display: flex;
     justify-content: space-between;
@@ -8,7 +14,12 @@
     margin-right: auto;
   }
   &__title {
+    margin: 0px;
 
+    a {
+      color: $text-color;
+      text-decoration: none;
+    }
   }
 
   &__user {
