@@ -23,7 +23,7 @@ COPY Gemfile Gemfile
 COPY Gemfile.lock Gemfile.lock
 RUN bundle config build.nokogiri --use-system-libraries
 
-RUN bundle install --path vendor/bundle
+RUN bundle install
 
 RUN curl -sSLO https://nodejs.org/dist/v8.4.0/node-v8.4.0.tar.xz && tar -xf node-v8.4.0.tar.xz
 

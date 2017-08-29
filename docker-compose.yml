@@ -4,6 +4,7 @@ services:
    image: busybox
    volumes:
      - /var/lib/postgres
+     - /app/node_modules
   db:
     image: postgres:9.6
     environment:
@@ -17,8 +18,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    env_file: .env
     environment:
-      DEVELOPMENT_DATABASE_HOST: db
+      DB_HOST: db
     volumes:
       - .:/app
     volumes_from:
