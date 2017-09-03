@@ -1,5 +1,5 @@
 <template>
-  <div class="todo-form" v-transition="form">
+  <div class="todo-form">
     <form v-on:submit.prevent="sendTodo">
       <div class="todo-form__group">
         <div class="todo-form__input-area">
@@ -35,7 +35,9 @@
         </div>
       </div>
       <div class="todo-form__group">
-        <input type='submit'>
+        <div class="todo-form__input-area todo-form__submit-area">
+          <input type='submit' class='todo-form__submit-button'>
+        </div>
       </div>
     </form>
   </div>
@@ -55,9 +57,6 @@ export default {
     sendTodo: function () {
       this.$emit('sendTodo', this.$data)
     }
-  },
-  mounted() {
-    console.log('ready')
   }
 }
 </script>
@@ -104,6 +103,23 @@ export default {
       padding: 5px;
       width: 70%;
     }
+  }
+
+  &__submit-area {
+    text-align: center;
+  }
+
+  &__submit-button {
+    background-color: $accent_color;
+    border: 0px;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.26);
+    color: $accent_text_color;
+    cursor: pointer;
+    display: inline-block;
+    padding-left: 16px;
+    padding-right: 16px;
+    width: auto;
   }
 }
 

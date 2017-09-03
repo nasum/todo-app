@@ -22,14 +22,18 @@ export default class Todo {
       const todo = response.data.todo
       const error = response.data.error
 
-      if(error.title || error.expired_at){
+      if(error.title.length > 0 || error.expired_at.length > 0){
         this.error.title = error.title
         this.error.description = error.description
         this.error.expired_at = error.expired_at
       } else {
-        this.list.push(todo)
+        this.list.unshift(todo)
       }
     })
+  }
+
+  doneTodo (data) {
+    
   }
 
   fetchTodoList () {
@@ -39,7 +43,7 @@ export default class Todo {
       responseType:'json'
     }).then((response) => {
       response.data.forEach((todo) => {
-        this.list.push(todo)
+        this.list.unshift(todo)
       })
     })
   }
