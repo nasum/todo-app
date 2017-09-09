@@ -1,9 +1,13 @@
-= form_with url: sign_in_path, local: true do |f|
-  %div
-    = f.label :email
-    = f.text_field :email
-  %div
-    = f.label :password
-    = f.password_field :password
-  %div
-    = f.submit 'sign in'
+.session-form
+  = form_with url: sign_in_path, local: true do |f|
+    .session-form__group
+      .session-form__input-area
+        = f.label :email
+        = f.text_field :email, class: 'session-form__input-text'
+    .session-form__group
+      .session-form__input-area
+        = f.label :password
+        = f.password_field :password, class: 'session-form__input-text'
+    .session-form__group
+      .session-form__input-area.session-form__submit-area
+        = f.submit 'sign in', class: 'session-form__submit-button'

@@ -1,9 +1,10 @@
 @import 'form_style';
 
-.user-body {
+.session-body {
   padding-top: 20px;
 
-  .user-form {
+  .session-form {
     @include form_style();
   }
+
 }
