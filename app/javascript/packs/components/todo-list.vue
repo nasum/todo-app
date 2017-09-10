@@ -47,8 +47,9 @@ export default {
       })
     },
     doneTodo: function (data) {
-      console.log(data)
-      todos.doneTodo(data.id)
+      todos.doneTodo(data.id).then(() => {
+        todos.fetchTodoList()
+      })
     }
   },
   mounted: function () {

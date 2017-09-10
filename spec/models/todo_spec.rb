@@ -9,6 +9,7 @@
 #  expired_at  :datetime
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  status      :integer          default("default"), not null
 #
 # Indexes
 #

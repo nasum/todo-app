@@ -1,5 +1,6 @@
 import axios from 'axios'
 import $ from 'jquery'
+import _ from 'lodash'
 
 axios.defaults.headers['X-CSRF-TOKEN'] = $('meta[name=csrf-token]').attr('content')
 
@@ -32,16 +33,21 @@ export default class Todo {
     })
   }
 
-  doneTodo (data) {
-    
+  doneTodo (id) {
+    return axios({
+      method: 'patch',
+      url: `todos/${id}`,
+      responseType:'json'
+    })
   }
 
   fetchTodoList () {
-    axios({
+    return axios({
       method: 'get',
       url: 'todos',
       responseType:'json'
     }).then((response) => {
+      this.list.splice(0, this.list.length)
       response.data.forEach((todo) => {
         this.list.unshift(todo)
       })
