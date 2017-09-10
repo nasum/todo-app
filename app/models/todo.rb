@@ -9,6 +9,7 @@
 #  expired_at  :datetime
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  status      :integer          default("default"), not null
 #
 # Indexes
 #
@@ -21,6 +22,8 @@
 
 class Todo < ApplicationRecord
   belongs_to :user
+
+  enum status: { default: 0, done: 1 }
 
   validates :title, presence: true
   validates :expired_at, presence: true

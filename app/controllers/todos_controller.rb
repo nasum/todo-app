@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
   def index
-    @todos = @current_user.todos
+    @todos = @current_user.todos.default
     render locals: { todos: @todos }
   end
 
@@ -15,9 +15,8 @@ class TodosController < ApplicationController
   end
 
   def update
-  end
-
-  def destroy
+    todo = Todo.find(params[:id])
+    todo.done!
   end
 
   private
