@@ -6,7 +6,7 @@
       <transition-group name="list" tag="ul">
         <li class="todo-list__item"
             v-for="todo, index in todoList"
-            key="{{index}}"
+            :key="index"
             @dblclick="doneTodo(todo)">
           <div class="todo-list__item-title">
             {{ todo.title }}

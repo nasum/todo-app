@@ -15,7 +15,7 @@ export default class Todo {
   }
 
   putTodo (data) {
-    axios({
+    return axios({
       method: 'post',
       url: 'todos',
       data: data
@@ -24,10 +24,9 @@ export default class Todo {
       const error = response.data.error
 
       if(error.title.length > 0 || error.expired_at.length > 0){
-        this.error.title = error.title
-        this.error.description = error.description
-        this.error.expired_at = error.expired_at
+        this.setError(error.title, error.description, error.expired_at)
       } else {
+        this.setError()
         this.list.unshift(todo)
       }
     })
@@ -52,5 +51,11 @@ export default class Todo {
         this.list.unshift(todo)
       })
     })
+  }
+
+  setError(title="", description="", expired_at=""){
+    this.error.title = title
+    this.error.description = description
+    this.error.expired_at = expired_at
   }
 }
