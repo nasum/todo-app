@@ -20,7 +20,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'hamlit', '~> 2.8'
 gem 'normalize-rails'
 
-gem 'webpacker', '~> 2.0'
+gem 'webpacker', '~> 3.0'
 
 gem 'jb', '~> 0.4'
 
